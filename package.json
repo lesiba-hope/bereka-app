@@ -1,0 +1,22 @@
+{
+  "name": "bereka",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lightning micro-task marketplace powered by LNbits + Supabase",
+  "scripts": {
+    "dev": "npm run dev --prefix apps/web",
+    "build": "npm run build --prefix apps/web",
+    "start": "npm run start --prefix apps/web",
+    "lint": "npm run lint --prefix apps/web",
+    "install:web": "npm install --prefix apps/web",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:reset": "supabase db reset",
+    "supabase:push": "supabase db push",
+    "supabase:functions": "supabase functions serve",
+    "supabase:deploy": "supabase db push && supabase functions deploy"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
