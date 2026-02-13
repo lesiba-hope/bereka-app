@@ -92,6 +92,8 @@ LNbits ────────────────────────�
 
 ## Prerequisites
 
+> **📚 New Developer?** See [SETUP.md](SETUP.md) for detailed, platform-specific setup instructions for Windows, macOS, and Linux.
+
 - Node.js 18+
 - [Supabase CLI](https://supabase.com/docs/guides/cli)
 - An LNbits instance (self-hosted or cloud)
@@ -238,6 +240,7 @@ OPEN → FUNDED → IN_PROGRESS → REVIEW → COMPLETED
 
 ## Additional Documentation
 
+- [SETUP.md](SETUP.md) – Detailed setup guide for Windows, macOS, and Linux
 - [API.md](API.md) – Edge Function API reference and examples
 - [TROUBLESHOOTING.md](TROUBLESHOOTING.md) – Common issues and solutions
 
