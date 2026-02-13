@@ -90,14 +90,19 @@ Deno.serve(async (req) => {
     }
 
     // Send email via external SMTP API (e.g. Resend, SendGrid)
-    const smtpUrl = Deno.env.get("SMTP_URL");
+    // Send email via Resend API
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
 
-    if (smtpUrl) {
-      const smtpResponse = await fetch(smtpUrl, {
+    if (resendApiKey) {
+      const resendResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${resendApiKey}`,
+        },
         body: JSON.stringify({
-          to: email,
+          from: "Bereka <noreply@bereka.co.za>", // Update this to your verified domain email
+          to: [email],
           subject,
           html: `<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #eab308;">&#9889; Bereka</h2>
@@ -108,9 +113,10 @@ Deno.serve(async (req) => {
         }),
       });
 
-      if (!smtpResponse.ok) {
+      if (!resendResponse.ok) {
+        const errorText = await resendResponse.text();
         console.error(
-          `Failed to send email to ${email}: ${smtpResponse.statusText}`
+          `Failed to send email to ${email}: ${resendResponse.statusText} - ${errorText}`
         );
       }
     } else {
