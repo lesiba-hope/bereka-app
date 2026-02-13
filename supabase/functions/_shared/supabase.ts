@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
 /**
  * Creates a Supabase admin client (service role) that bypasses RLS.
